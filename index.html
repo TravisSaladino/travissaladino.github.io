@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travis Saladino | Professional Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Travis Saladino | Geospatial Specialist & Platform Architect</title>
   <style>
     :root {
       --bg: #0f172a;
-      --card-bg: #1e293b;
+      --surface: #1e293b;
+      --surface-hover: #283548;
       --text: #f8fafc;
       --muted: #94a3b8;
       --accent: #38bdf8;
       --accent-hover: #0284c7;
       --border: #334155;
+      --tag-bg: #0b1329;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -24,7 +25,7 @@
       padding: 0 1.5rem;
     }
     header, section, footer {
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 3rem 0;
     }
@@ -32,132 +33,243 @@
       border-bottom: 1px solid var(--border);
     }
     h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    h2 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--accent); }
-    p.lead { font-size: 1.2rem; color: var(--muted); max-width: 700px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-preview {
-      width: 100%;
-      height: 180px;
-      background: #0b1120;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-    }
-    .card-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .card-title { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .card-desc { font-size: 0.95rem; color: var(--muted); margin-bottom: 1rem; flex-grow: 1; }
-    .card-link {
+    h2.section-heading {
+      font-size: 1.6rem;
+      margin: 2.5rem 0 1.25rem 0;
       color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
     }
-    .card-link:hover { text-decoration: underline; }
-    .contact-links {
+    p.lead { font-size: 1.15rem; color: var(--muted); max-width: 800px; margin-bottom: 1.5rem; }
+    .contact-bar {
       display: flex;
       gap: 1rem;
-      margin-top: 1rem;
       flex-wrap: wrap;
     }
     .btn {
       display: inline-block;
       background: var(--accent);
       color: #0f172a;
-      padding: 0.6rem 1.2rem;
+      padding: 0.55rem 1.1rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.15s ease;
     }
     .btn:hover { background: var(--accent-hover); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--surface-hover); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .card-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .card-action {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-action:hover { text-decoration: underline; }
+
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--muted);
       font-size: 0.85rem;
+      margin-top: 4rem;
     }
   </style>
 </head>
 <body>
 
+  <!-- Header & Contact -->
   <header>
     <h1>Travis Saladino</h1>
-    <p class="lead">Geospatial Specialist, Technical Instructor & Solutions Developer</p>
-    <div class="contact-links">
-      <a class="btn" href="https://www.linkedin.com/in/travissaladino" target="_blank" rel="noopener">LinkedIn Profile</a>
-      <a class="btn" href="mailto:your-email@example.com">Email Me</a>
+    <p class="lead">Enterprise GIS Platform Specialist, Solutions Architect & Technical Instructor with 25 years of platform consulting, systems deployment, and technical enablement.</p>
+    <div class="contact-bar">
+      <a class="btn" href="mailto:tdsalad@gmail.com">Contact via Email</a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/travissaladino" target="_blank" rel="noopener">LinkedIn Profile</a>
     </div>
   </header>
 
-  <section id="work">
-    <h2>Featured Media & Technical Projects</h2>
-    <div class="grid">
-      
-      <!-- Project Card 1 -->
-      <div class="card">
-        <div class="card-preview">
-          <span>Project Graphic / Map Preview</span>
+  <main>
+    <!-- Section: Official Publications & Thought Leadership -->
+    <section>
+      <h2 class="section-heading">Official Thought Leadership & Blog Publications</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div>
+            <span class="card-tag">Official ArcGIS Blog</span>
+            <h3 class="card-title">Introducing a New Series of Blog Articles on ArcGIS Enterprise</h3>
+            <p class="card-desc">An architectural framework outlining component roles, deployment tiers, and core design considerations for enterprise GIS ecosystems.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Read Blog Article &rarr;</a>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Interactive GIS Application & Dashboard</h3>
-          <p class="card-desc">Architecture and interface design demonstrating spatial data pipelines, custom queries, and reporting widgets.</p>
-          <a class="card-link" href="#" target="_blank">View Live Application &rarr;</a>
-        </div>
+
       </div>
+    </section>
 
-      <!-- Project Card 2 -->
-      <div class="card">
-        <div class="card-preview">
-          <span>Automation / Architecture</span>
+    <!-- Section: Architectural Analysis Series (The Travii) -->
+    <section>
+      <h2 class="section-heading">Architectural Analysis Series: "The Travii" (Esri Community)</h2>
+      <div class="grid">
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Series Hub</span>
+            <h3 class="card-title">The Travii Try to Help You Understand ArcGIS Enterprise</h3>
+            <p class="card-desc">Central launchpad for the community technical series exploring enterprise concepts through intuitive, architectural analogies.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">View Series Hub &rarr;</a>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Data Pipeline & Script Automation</h3>
-          <p class="card-desc">Automated processing workflows using Python and REST APIs to handle recurring data ingest and QA validation.</p>
-          <a class="card-link" href="#" target="_blank">View Project Details &rarr;</a>
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Architecture</span>
+            <h3 class="card-title">Understanding ArcGIS Enterprise: An Alternative Perspective</h3>
+            <p class="card-desc">A deep dive into system component roles and how the foundational tiers integrate across physical and virtual environments.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Read Article &rarr;</a>
         </div>
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Server Architecture</span>
+            <h3 class="card-title">ArcGIS Server is Like a GIS Office in a Box</h3>
+            <p class="card-desc">Conceptualizing site components, service routing, and process allocation within multi-machine server environments.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Read Article &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Service Publishing</span>
+            <h3 class="card-title">ArcGIS Server: Making the Map Everyone Needs</h3>
+            <p class="card-desc">Authoring strategies, dynamic map rendering, and caching decisions tailored to high-demand enterprise environments.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Read Article &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Performance Tuning</span>
+            <h3 class="card-title">ArcGIS Server: It is All About Efficiency</h3>
+            <p class="card-desc">Instance optimization (shared vs. dedicated), process limits, compute sizing, and minimizing server resource bottlenecks.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Read Article &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Data Integration</span>
+            <h3 class="card-title">ArcGIS Server: Getting the Right Data Right Now</h3>
+            <p class="card-desc">Data store connectivity, enterprise geodatabase registration, and maximizing spatial query throughput.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Read Article &rarr;</a>
+        </div>
+
       </div>
+    </section>
 
-      <!-- Project Card 3 -->
-      <div class="card">
-        <div class="card-preview">
-          <span>Technical Documentation / Curriculum</span>
+    <!-- Section: Video Walkthroughs -->
+    <section>
+      <h2 class="section-heading">Video Technical Walkthroughs & Demonstrations</h2>
+      <div class="grid">
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Field & Mobile GIS</span>
+            <h3 class="card-title">Set Up Connected Editing of Branch Versions in ArcGIS Field Maps</h3>
+            <p class="card-desc">Step-by-step technical walkthrough demonstrating branch-versioned feature service configuration for real-time mobile data collection.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Watch Demonstration &rarr;</a>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Technical Training & Documentation</h3>
-          <p class="card-desc">Sample instructional curriculum, architectural blueprints, and step-by-step user implementation guides.</p>
-          <a class="card-link" href="#" target="_blank">Download Case Study PDF &rarr;</a>
+
+        <div class="card">
+          <div>
+            <span class="card-tag">Enterprise Administration</span>
+            <h3 class="card-title">How to Create Custom Roles in ArcGIS Enterprise</h3>
+            <p class="card-desc">Configuring granular portal privilege boundaries and custom administrative roles for enterprise governance.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">Watch Demonstration &rarr;</a>
         </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Section: Interactive Web Courseware -->
+    <section>
+      <h2 class="section-heading">Interactive Web Courseware</h2>
+      <div class="grid">
 
-  <section id="about">
-    <h2>About</h2>
-    <p>With over two decades of experience spanning geospatial architecture, enterprise technical support, and adult technical instruction, I specialize in translating complex technical systems into resilient solutions and actionable training.</p>
-  </section>
+        <div class="card">
+          <div>
+            <span class="card-tag">Web Courseware</span>
+            <h3 class="card-title">ArcGIS Online: Creating and Styling a Map</h3>
+            <p class="card-desc">Interactive curriculum covering Map Viewer capabilities, visual hierarchy, layer styling, and smart mapping techniques.</p>
+          </div>
+          <!-- REPLACE 'PASTE_YOUR_URL_HERE' BELOW -->
+          <a class="card-action" href="PASTE_YOUR_URL_HERE" target="_blank" rel="noopener">View Course in Catalog &rarr;</a>
+        </div>
 
-  <footer>
-    <p>&copy; 2026 Travis Saladino. Hosted on GitHub Pages.</p>
-  </footer>
+      </div>
+    </section>
 
-</body>
-</html>
+    <!-- Section: Official Course Resource Compilations -->
+    <section>
+      <h
