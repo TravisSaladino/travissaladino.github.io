@@ -5,18 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travis Saladino | Geospatial Specialist & Platform Architect</title>
   <style>
- :root {
-  --bg: #e7e5e4;             /* Warm stone overcast sky */
-  --surface: #fbfbfb;        /* Soft paper card surface */
-  --surface-hover: #f5f5f4;  /* Muted cloud drift */
-  --text: #1c1917;           /* Deep umber-black readable text */
-  --muted: #57534e;          /* Timber gray supporting text */
-  --accent: #c2410c;         /* Bright red oak/burnt maple foliage */
-  --accent-hover: #9a3412;   /* Deep timber rust */
-  --border: #d6d3d1;         /* Weathered granite border */
-  --tag-bg: #fef9c3;         /* Bright yellow aspen sun-wash */
-  --nav-bg: rgba(231, 229, 228, 0.92);
-}
+    /* October Harvest & Woodland Green */
+    :root {
+      --bg: #e7e5e4;             /* Overcast warm stone/cloud sky */
+      --surface: #ffffff;        /* Pure white cards for crisp contrast */
+      --surface-hover: #fcfbf9;  /* Soft warm hover */
+      --text: #1c1917;           /* Deep bark charcoal text */
+      --muted: #57534e;          /* Weathered wood secondary text */
+      
+      /* Primary Interactive: Warm Russet/Red Oak */
+      --accent: #c2410c;         /* Burnt maple / red oak rust */
+      --accent-hover: #9a3412;   /* Deep timber rust hover */
+      
+      /* Secondary Focus & Links: Forest Evergreen */
+      --action-link: #245a3a;    /* Rich spruce / forest evergreen */
+      --action-hover: #163824;   /* Deep woodland canopy hover */
+      
+      --border: #d6d3d1;         /* Weathered stone border */
+      --tag-bg: #fef9c3;         /* Warm aspen gold wash */
+      --tag-text: #854d0e;       /* Deep amber text */
+      --nav-bg: rgba(231, 229, 228, 0.92);
+      --banner-bg: #f5f4f0;      /* Warm mist background for SVG canvas */
+    }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -197,8 +207,6 @@
     .svg-bg { fill: var(--banner-bg); }
     .svg-primary { stroke: var(--accent); }
     .svg-primary-fill { fill: var(--accent); }
-    .svg-secondary { stroke: var(--muted); }
-    .svg-secondary-fill { fill: var(--muted); }
     .svg-border { stroke: var(--border); }
 
     .card-body {
@@ -234,18 +242,19 @@
       margin-bottom: 1.25rem;
       line-height: 1.5;
     }
-    .card-action {
+   .card-action {
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--action-link); /* Forest green */
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      transition: gap 0.15s ease;
+      transition: gap 0.15s ease, color 0.15s ease;
     }
     .card-action:hover {
       text-decoration: underline;
+      color: var(--action-hover);
       gap: 0.55rem;
     }
 
