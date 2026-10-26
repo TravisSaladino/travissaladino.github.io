@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travis Saladino | Geospatial Specialist & Platform Architect</title>
   <style>
-:root {
-  --bg: #eceff1;             /* Overcast late-morning gray sky */
-  --surface: #ffffff;        /* Crisp white card & nav containers */
-  --surface-hover: #f8fafc;  /* Subtle off-white card hover */
-  --text: #1e293b;           /* Deep slate body text */
-  --muted: #475569;          /* Muted graphite secondary text */
-  --accent: #b91c1c;         /* Vibrant autumn maple leaf red */
-  --accent-hover: #991b1b;   /* Deeper crimson hover state */
-  --border: #cbd5e1;         /* Cool overcast cloud boundary */
-  --tag-bg: #fef3c7;         /* Warm aspen gold leaf tag background */
-  --nav-bg: rgba(236, 239, 241, 0.9);
-}
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      scroll-behavior: smooth;
+    /* Autumn Canopy Palette */
+    :root {
+      --bg: #eceff1;             /* Overcast sky gray */
+      --surface: #ffffff;        /* Crisp white card & nav containers */
+      --surface-hover: #f8fafc;  /* Soft off-white hover */
+      --text: #1e293b;           /* Slate body text */
+      --muted: #475569;          /* Graphite secondary text */
+      --accent: #b91c1c;         /* Maple scarlet red */
+      --accent-hover: #991b1b;   /* Deep crimson hover */
+      --border: #cbd5e1;         /* Cloud edge boundary */
+      --tag-bg: #fef3c7;         /* Aspen gold wash */
+      --tag-text: #92400e;       /* Deep amber text */
+      --nav-bg: rgba(236, 239, 241, 0.9);
+      --banner-bg: #f1f5f9;      /* Light overcast vector canvas */
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding-top: 4rem; /* Offset for sticky nav */
+      padding-top: 4rem;
     }
 
     /* Sticky Navigation */
@@ -75,9 +77,7 @@
       font-weight: 500;
       transition: color 0.15s ease;
     }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+    .nav-links a:hover { color: var(--accent); }
 
     /* Content Layout */
     header, section, footer {
@@ -85,9 +85,7 @@
       margin: 0 auto;
       padding: 3rem 1.5rem;
     }
-    section {
-      scroll-margin-top: 4rem;
-    }
+    section { scroll-margin-top: 4rem; }
     header {
       border-bottom: 1px solid var(--border);
       padding: 3.5rem 1.5rem;
@@ -105,12 +103,10 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--accent);
-      box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 8px 20px -4px rgba(185, 28, 28, 0.25);
       flex-shrink: 0;
     }
-    .hero-content {
-      flex-grow: 1;
-    }
+    .hero-content { flex-grow: 1; }
     h1 { font-size: 2.6rem; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
     .hero-subtitle {
       font-size: 1.15rem;
@@ -128,7 +124,7 @@
     .btn {
       display: inline-block;
       background: var(--accent);
-      color: #0b1120;
+      color: #ffffff;
       padding: 0.55rem 1.1rem;
       border-radius: 6px;
       text-decoration: none;
@@ -184,12 +180,12 @@
     .card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
-      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
     }
     .card-banner {
       width: 100%;
       height: 140px;
-      background: #0f172a;
+      background: var(--banner-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -199,6 +195,15 @@
       width: 100%;
       height: 100%;
     }
+
+    /* Dynamic SVG Theme Rules */
+    .svg-bg { fill: var(--banner-bg); }
+    .svg-primary { stroke: var(--accent); }
+    .svg-primary-fill { fill: var(--accent); }
+    .svg-secondary { stroke: var(--muted); }
+    .svg-secondary-fill { fill: var(--muted); }
+    .svg-border { stroke: var(--border); }
+
     .card-body {
       padding: 1.4rem;
       display: flex;
@@ -212,9 +217,9 @@
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 0.06em;
-      color: var(--accent);
+      color: var(--tag-text);
       background: var(--tag-bg);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(146, 64, 14, 0.2);
       padding: 0.2rem 0.55rem;
       border-radius: 4px;
       margin-bottom: 0.75rem;
@@ -255,22 +260,17 @@
       padding: 3rem 1.5rem;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .hero-wrapper {
         flex-direction: column;
         text-align: center;
       }
-      .contact-bar {
-        justify-content: center;
-      }
+      .contact-bar { justify-content: center; }
       p.lead {
         margin-left: auto;
         margin-right: auto;
       }
-      .nav-links {
-        display: none; /* Keep clean on small mobile viewports */
-      }
+      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -313,15 +313,14 @@
       <div class="grid">
         <div class="card">
           <div class="card-banner">
-            <!-- ArcGIS Enterprise / Cloud Platform SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <circle cx="200" cy="70" r="46" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <circle cx="200" cy="70" r="30" stroke="#0284c7" stroke-width="2"/>
-              <path d="M170 70H230M200 40V100" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.5"/>
-              <circle cx="200" cy="70" r="7" fill="#38bdf8"/>
-              <circle cx="160" cy="50" r="4" fill="#38bdf8" fill-opacity="0.4"/>
-              <circle cx="240" cy="90" r="4" fill="#38bdf8" fill-opacity="0.4"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <circle cx="200" cy="70" r="46" class="svg-primary" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <circle cx="200" cy="70" r="30" class="svg-secondary" stroke-width="2"/>
+              <path d="M170 70H230M200 40V100" class="svg-primary" stroke-width="1.5" stroke-opacity="0.6"/>
+              <circle cx="200" cy="70" r="7" class="svg-primary-fill"/>
+              <circle cx="160" cy="50" r="4" class="svg-primary-fill" fill-opacity="0.4"/>
+              <circle cx="240" cy="90" r="4" class="svg-primary-fill" fill-opacity="0.4"/>
             </svg>
           </div>
           <div class="card-body">
@@ -343,12 +342,11 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Series Hub SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <polygon points="200,28 250,56 250,112 200,140 150,112 150,56" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6"/>
-              <circle cx="200" cy="84" r="14" fill="#0284c7"/>
-              <path d="M200 28V84M150 112L200 84M250 112L200 84" stroke="#38bdf8" stroke-width="1.5"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <polygon points="200,28 250,56 250,112 200,140 150,112 150,56" class="svg-primary" stroke-width="1.5" stroke-opacity="0.7"/>
+              <circle cx="200" cy="84" r="14" class="svg-secondary-fill"/>
+              <path d="M200 28V84M150 112L200 84M250 112L200 84" class="svg-primary" stroke-width="1.5"/>
             </svg>
           </div>
           <div class="card-body">
@@ -363,12 +361,11 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Ecosystem / Architecture Layers SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <path d="M140 50L200 25L260 50L200 75L140 50Z" stroke="#38bdf8" stroke-width="1.5"/>
-              <path d="M140 75L200 100L260 75" stroke="#0284c7" stroke-width="1.5"/>
-              <path d="M140 95L200 120L260 95" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.5"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <path d="M140 50L200 25L260 50L200 75L140 50Z" class="svg-primary" stroke-width="1.5"/>
+              <path d="M140 75L200 100L260 75" class="svg-secondary" stroke-width="1.5"/>
+              <path d="M140 95L200 120L260 95" class="svg-border" stroke-width="1.5"/>
             </svg>
           </div>
           <div class="card-body">
@@ -383,15 +380,14 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Server Office in a Box SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <rect x="150" y="32" width="100" height="76" rx="6" stroke="#38bdf8" stroke-width="1.5"/>
-              <line x1="150" y1="58" x2="250" y2="58" stroke="#334155" stroke-width="1.5"/>
-              <line x1="150" y1="84" x2="250" y2="84" stroke="#334155" stroke-width="1.5"/>
-              <circle cx="165" cy="45" r="3" fill="#38bdf8"/>
-              <circle cx="165" cy="71" r="3" fill="#38bdf8"/>
-              <circle cx="165" cy="97" r="3" fill="#38bdf8"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <rect x="150" y="32" width="100" height="76" rx="6" class="svg-primary" stroke-width="1.5"/>
+              <line x1="150" y1="58" x2="250" y2="58" class="svg-border" stroke-width="1.5"/>
+              <line x1="150" y1="84" x2="250" y2="84" class="svg-border" stroke-width="1.5"/>
+              <circle cx="165" cy="45" r="3" class="svg-primary-fill"/>
+              <circle cx="165" cy="71" r="3" class="svg-primary-fill"/>
+              <circle cx="165" cy="97" r="3" class="svg-primary-fill"/>
             </svg>
           </div>
           <div class="card-body">
@@ -406,14 +402,13 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Cached / Dynamic Map Service SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <rect x="145" y="30" width="110" height="80" rx="4" stroke="#38bdf8" stroke-width="1.5"/>
-              <line x1="182" y1="30" x2="182" y2="110" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3"/>
-              <line x1="218" y1="30" x2="218" y2="110" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3"/>
-              <line x1="145" y1="70" x2="255" y2="70" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3"/>
-              <circle cx="200" cy="70" r="5" fill="#38bdf8"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <rect x="145" y="30" width="110" height="80" rx="4" class="svg-primary" stroke-width="1.5"/>
+              <line x1="182" y1="30" x2="182" y2="110" class="svg-secondary" stroke-width="1" stroke-dasharray="3 3"/>
+              <line x1="218" y1="30" x2="218" y2="110" class="svg-secondary" stroke-width="1" stroke-dasharray="3 3"/>
+              <line x1="145" y1="70" x2="255" y2="70" class="svg-secondary" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="200" cy="70" r="5" class="svg-primary-fill"/>
             </svg>
           </div>
           <div class="card-body">
@@ -428,12 +423,11 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Performance & Efficiency SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <path d="M150 95C150 67.3858 172.386 45 200 45C227.614 45 250 67.3858 250 95" stroke="#38bdf8" stroke-width="2"/>
-              <line x1="200" y1="95" x2="225" y2="65" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="200" cy="95" r="5" fill="#0284c7"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <path d="M150 95C150 67.3858 172.386 45 200 45C227.614 45 250 67.3858 250 95" class="svg-primary" stroke-width="2"/>
+              <line x1="200" y1="95" x2="225" y2="65" class="svg-primary" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="200" cy="95" r="5" class="svg-secondary-fill"/>
             </svg>
           </div>
           <div class="card-body">
@@ -448,12 +442,11 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Data Store / RDBMS SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <ellipse cx="200" cy="45" rx="45" ry="14" stroke="#38bdf8" stroke-width="1.5"/>
-              <path d="M155 45V95C155 102.732 175.147 109 200 109C224.853 109 245 102.732 245 95V45" stroke="#38bdf8" stroke-width="1.5"/>
-              <path d="M155 70C155 77.732 175.147 84 200 84C224.853 84 245 77.732 245 70" stroke="#0284c7" stroke-width="1.5"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <ellipse cx="200" cy="45" rx="45" ry="14" class="svg-primary" stroke-width="1.5"/>
+              <path d="M155 45V95C155 102.732 175.147 109 200 109C224.853 109 245 102.732 245 95V45" class="svg-primary" stroke-width="1.5"/>
+              <path d="M155 70C155 77.732 175.147 84 200 84C224.853 84 245 77.732 245 70" class="svg-secondary" stroke-width="1.5"/>
             </svg>
           </div>
           <div class="card-body">
@@ -476,12 +469,11 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Mobile Field Branch Editing SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <rect x="175" y="28" width="50" height="84" rx="7" stroke="#38bdf8" stroke-width="1.5"/>
-              <circle cx="200" cy="102" r="3" fill="#38bdf8"/>
-              <polygon points="196,62 208,70 196,78" fill="#38bdf8"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <rect x="175" y="28" width="50" height="84" rx="7" class="svg-primary" stroke-width="1.5"/>
+              <circle cx="200" cy="102" r="3" class="svg-primary-fill"/>
+              <polygon points="196,62 208,70 196,78" class="svg-primary-fill"/>
             </svg>
           </div>
           <div class="card-body">
@@ -496,11 +488,10 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Custom Security Roles SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <path d="M200 35L235 48V75C235 97 200 110 200 110C200 110 165 97 165 75V48L200 35Z" stroke="#38bdf8" stroke-width="1.5"/>
-              <polygon points="196,66 208,74 196,82" fill="#38bdf8"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <path d="M200 35L235 48V75C235 97 200 110 200 110C200 110 165 97 165 75V48L200 35Z" class="svg-primary" stroke-width="1.5"/>
+              <polygon points="196,66 208,74 196,82" class="svg-primary-fill"/>
             </svg>
           </div>
           <div class="card-body">
@@ -523,13 +514,12 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Map Viewer / Styling SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <rect x="145" y="32" width="110" height="76" rx="5" stroke="#38bdf8" stroke-width="1.5"/>
-              <circle cx="175" cy="65" r="10" fill="#0284c7"/>
-              <circle cx="215" cy="78" r="14" stroke="#38bdf8" stroke-width="1.5"/>
-              <line x1="175" y1="65" x2="215" y2="78" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <rect x="145" y="32" width="110" height="76" rx="5" class="svg-primary" stroke-width="1.5"/>
+              <circle cx="175" cy="65" r="10" class="svg-secondary-fill"/>
+              <circle cx="215" cy="78" r="14" class="svg-primary" stroke-width="1.5"/>
+              <line x1="175" y1="65" x2="215" y2="78" class="svg-primary" stroke-width="1" stroke-dasharray="2 2"/>
             </svg>
           </div>
           <div class="card-body">
@@ -552,13 +542,12 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Base Deployment Blueprint SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <rect x="150" y="35" width="40" height="30" rx="3" stroke="#38bdf8" stroke-width="1.5"/>
-              <rect x="210" y="35" width="40" height="30" rx="3" stroke="#38bdf8" stroke-width="1.5"/>
-              <rect x="180" y="80" width="40" height="30" rx="3" stroke="#0284c7" stroke-width="1.5"/>
-              <path d="M170 65V72.5H200V80M230 65V72.5H200" stroke="#38bdf8" stroke-width="1.5"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <rect x="150" y="35" width="40" height="30" rx="3" class="svg-primary" stroke-width="1.5"/>
+              <rect x="210" y="35" width="40" height="30" rx="3" class="svg-primary" stroke-width="1.5"/>
+              <rect x="180" y="80" width="40" height="30" rx="3" class="svg-secondary" stroke-width="1.5"/>
+              <path d="M170 65V72.5H200V80M230 65V72.5H200" class="svg-primary" stroke-width="1.5"/>
             </svg>
           </div>
           <div class="card-body">
@@ -573,14 +562,13 @@
 
         <div class="card">
           <div class="card-banner">
-            <!-- Sharing Content / Web Publication SVG -->
             <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="140" fill="#0f172a"/>
-              <circle cx="200" cy="50" r="16" stroke="#38bdf8" stroke-width="1.5"/>
-              <circle cx="160" cy="95" r="12" stroke="#0284c7" stroke-width="1.5"/>
-              <circle cx="240" cy="95" r="12" stroke="#0284c7" stroke-width="1.5"/>
-              <line x1="188" y1="62" x2="168" y2="85" stroke="#38bdf8" stroke-width="1.5"/>
-              <line x1="212" y1="62" x2="232" y2="85" stroke="#38bdf8" stroke-width="1.5"/>
+              <rect width="400" height="140" class="svg-bg"/>
+              <circle cx="200" cy="50" r="16" class="svg-primary" stroke-width="1.5"/>
+              <circle cx="160" cy="95" r="12" class="svg-secondary" stroke-width="1.5"/>
+              <circle cx="240" cy="95" r="12" class="svg-secondary" stroke-width="1.5"/>
+              <line x1="188" y1="62" x2="168" y2="85" class="svg-primary" stroke-width="1.5"/>
+              <line x1="212" y1="62" x2="232" y2="85" class="svg-primary" stroke-width="1.5"/>
             </svg>
           </div>
           <div class="card-body">
